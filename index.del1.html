@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تعرف على منتجنا المميز بتفاصيل كاملة ومزايا استثنائية. احصل عليه الآن!">
+    <meta name="keywords" content="منتج, شراء, عرض, مزايا, كلادينج, يوفط">
+    <meta name="author" content="أركاز">
+    <title>تعرف على المزيد - أركاز</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header img {
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+        header img:hover {
+            transform: scale(1.1);
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            background-color: #fff;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .product-image {
+            flex: 1 1 50%;
+            max-width: 500px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .product-image img:hover {
+            transform: scale(1.05);
+        }
+        .product-details {
+            flex: 1 1 50%;
+            max-width: 600px;
+            margin-left: 30px;
+        }
+        .product-details h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #343a40;
+            transition: color 0.3s ease;
+        }
+        .product-details h1:hover {
+            color: #ffd700;
+        }
+        .product-details p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .product-details ul {
+            list-style: none;
+            padding: 0;
+        }
+        .product-details ul li {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #555;
+            position: relative;
+            left: -20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease, left 0.3s ease;
+        }
+        .product-details ul li::before {
+            content: '✔';
+            color: #ffd700;
+            margin-right: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .purchase-container {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .purchase-button, .whatsapp-button {
+            background-color: #ffd700;
+            color: #343a40;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .purchase-button:hover, .whatsapp-button:hover {
+            background-color: #f5c300;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .purchase-button::before {
+            content: '\1F6D2'; /* رمز عربة التسوق */
+            margin-right: 10px;
+        }
+        .whatsapp-button::before {
+            content: '\1F4F1'; /* رمز الهاتف */
+            margin-right: 10px;
+        }
+        .icons-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .icon {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .icon:hover {
+            transform: scale(1.1);
+        }
+        .icon img {
+            width: 60px;
+            height: 60px;
+        }
+        .icon p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #343a40;
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .product-details {
+                margin-left: 0;
+                text-align: center;
+            }
+            .icons-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.product-container, .product-details p, .product-details ul li, .icons-container');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = 1;
+                    el.style.transform = 'translateY(0)';
+                    if (el.tagName === 'LI') el.style.left = '0';
+                }, index * 200);
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="أركاز">
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="product-container">
+        <div class="product-image">
+            <img src="product-image.jpg" alt="صورة المنتج">
+        </div>
+        <div class="product-details">
+            <h1>منتج مميز</h1>
+            <p>هذا المنتج يعتبر من أفضل المنتجات لدينا، يتميز بجودة عالية ومواصفات فريدة تجعله الخيار الأمثل لك.</p>
+            <ul>
+                <li>الميزة الأولى للمنتج</li>
+                <li>الميزة الثانية للمنتج</li>
+                <li>الميزة الثالثة للمنتج</li>
+                <li>الميزة الرابعة للمنتج</li>
+            </ul>
+            <div class="purchase-container">
+                <a href="#" class="purchase-button">اشتري الآن</a>
+                <a href="https://wa.me/201030882393" class="whatsapp-button">تواصل عبر الواتساب</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="icons-container">
+        <div class="icon">
+            <img src="quality-icon.png" alt="جودة عالية">
+            <p>جودة عالية</p>
+        </div>
+        <div class="icon">
+            <img src="fast-delivery-icon.png" alt="توصيل سريع">
+            <p>توصيل سريع</p>
+        </div>
+        <div class="icon">
+            <img src="support-icon.png" alt="دعم فني">
+            <p>دعم فني</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 أركاز. جميع الحقوق محفوظة. <a href="privacy.html">سياسة الخصوصية</a> | <a href="terms.html">الشروط والأحكام</a></p>
+    </footer>
+</body>
+</html>

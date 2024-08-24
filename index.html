@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="أركاز تقدم خدمات الكلادينج واليوفط بمهارة وجودة عالية في مصر. اكتشف خدماتنا ومنتجاتنا الآن!">
+    <meta name="keywords" content="كلادينج, يوفط, تركيب, أركاز, خدمات, مصر">
+    <meta name="author" content="أركاز">
+    <title>أركاز - خدمات الكلادينج وتركيب اليوفط</title>
+    <style>
+        /* تنسيق النصوص في الجسم */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            overflow-x: hidden; /* منع التمرير الأفقي */
+        }
+
+        /* تنسيق حاوية الفيديو */
+        .video-container {
+            position: fixed; /* جعل الحاوية ثابتة في الخلفية */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: -1; /* وضع الفيديو خلف المحتوى */
+        }
+
+        /* تنسيق عنصر الفيديو */
+        video {
+            width: 100%; /* عرض الفيديو يملأ عرض الحاوية */
+            height: 100%; /* ارتفاع الفيديو يملأ ارتفاع الحاوية */
+            object-fit: cover; /* الحفاظ على نسبة العرض إلى الارتفاع وتغطية كامل الحاوية */
+        }
+
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header img {
+            height: 60px;
+            width: auto;
+        }
+        nav {
+            flex: 1;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .search-container input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            width: 80%;
+            max-width: 600px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .search-container button {
+            background-color: #ffd700;
+            color: #343a40;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .search-container button:hover {
+            background-color: #f5c300;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            color: #fff;
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            background-color: #ffd700;
+            color: #343a40;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .cta-button:hover {
+            background-color: #f5c300;
+            transform: scale(1.05);
+        }
+        .features, .projects, .about, .contact {
+            padding: 60px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .features h2, .projects h2, .about h2, .contact h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .features ul, .projects .project-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .features li, .projects .project-item {
+            background-color: #343a40;
+            color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            flex: 1 1 30%;
+            max-width: 320px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .features li:hover, .projects .project-item:hover {
+            transform: translateY(-5px);
+        }
+        .features li img, .projects .project-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .projects .project-item h3 {
+            font-size: 22px;
+            margin: 15px 0;
+        }
+        .projects .project-item p {
+            font-size: 16px;
+            color: #ddd;
+        }
+        .projects .project-item a {
+            display: block;
+            margin-top: 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 25px;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .projects .project-item a:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .contact-form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .contact-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .contact-form button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .features li, .projects .project-item {
+                flex: 1 1 100%;
+            }
+            .search-container {
+                flex-direction: column;
+            }
+            .search-container input {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- حاوية الفيديو -->
+    <div class="video-container">
+        <!-- عنصر الفيديو مع خاصية التشغيل التلقائي وبدون صوت -->
+        <video autoplay muted loop>
+            <!-- مصدر الفيديو وملفه -->
+            <source src="Sequence 01.mp4" type="video/mp4">
+            <!-- نص بديل في حال عدم دعم الفيديو -->
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- رأس الصفحة -->
+    <header>
+        <!-- شعار الموقع -->
+        <img src="arkaz_logo-removebg-preview.png" alt="أركاز" />
+        <!-- قائمة التنقل -->
+        <nav>
+            <ul>
+                <li><a href="#features">الخدمات</a></li>
+                <li><a href="#projects">المشاريع</a></li>
+                <li><a href="#about">عن الشركة</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- قسم البحث -->
+    <div class="search-container">
+        <input type="text" placeholder="ابحث هنا...">
+        <button>بحث</button>
+    </div>
+
+    <!-- قسم البطل (Hero Section) -->
+    <div class="hero">
+        <h1>مرحبا بك في أركاز</h1>
+        <p>نقدم أفضل خدمات الكلادينج وتركيب اليوفط في مصر</p>
+        <a href="#contact" class="cta-button">اتصل بنا الآن</a>
+    </div>
+
+    <!-- قسم الخدمات -->
+    <div class="features" id="features">
+        <h2>خدماتنا</h2>
+        <ul>
+            <li>
+                <img src="25% OFF (3).jpg" alt="خدمة 1">
+                <h3>تركيب كلادينج</h3>
+                <p>خدمة تركيب الكلادينج بجودة عالية واحترافية.</p>
+            </li>
+            <li>
+                <img src="25% OFF (4).jpg" alt="خدمة 2">
+                <h3>تصميم يوفط</h3>
+                <p>تصميم وتوريد يوفط تتناسب مع احتياجاتك.</p>
+            </li>
+            <li>
+                <img src="25% OFF.jpg" alt="خدمة 3">
+                <h3>صيانة دورية</h3>
+                <p>خدمة صيانة دورية لضمان جودة واستدامة خدماتنا.</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- قسم المشاريع -->
+    <div class="projects" id="projects">
+        <h2>مشاريعنا</h2>
+        <div class="project-list">
+            <div class="project-item">
+                <img src="449849789_122161340036177950_8217819096759549975_n.jpg" alt="مشروع 1">
+                <h3>مشروع تجاري</h3>
+                <p>وصف مختصر للمشروع التجاري الأول.</p>
+                <a href="index.del1.html">عرض التفاصيل</a>
+            </div>
+            <div class="project-item">
+                <img src="25% OFF (2).jpg" alt="مشروع 2">
+                <h3>مشروع سكني</h3>
+                <p>وصف مختصر للمشروع السكني الثاني.</p>
+                <a href="index.del1.html">عرض التفاصيل</a>
+            </div>
+            <div class="project-item">
+                <img src="25% OFF (1).jpg" alt="مشروع 3">
+                <h3>مشروع صناعي</h3>
+                <p>وصف مختصر للمشروع الصناعي الثالث.</p>
+                <a href="index.del1.html">عرض التفاصيل</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم عن الشركة -->
+    <div class="about" id="about">
+        <h2>عن أركاز</h2>
+        <p>شركة أركاز متخصصة في توريد وتركيب اليوفط الكلادينج، وتُعد واحدة من الشركات الرائدة في هذا المجال بمصر. نتميز بتقديم خدمات عالية الجودة تلبي احتياجات العملاء المختلفة من حيث التصميم، والتنفيذ، والتركيب. تستخدم شركتنا أفضل المواد والأدوات لضمان نتائج تدوم طويلاً وتتحمل العوامل البيئية المختلفة.
+
+            ما الذي يميز أركاز؟
+            
+            الاحترافية: نمتلك فريقًا من المهندسين والفنيين ذوي الخبرة الذين يعملون بجد لتحقيق رؤية العملاء، مع الالتزام بأعلى معايير الجودة والسلامة.
+            التصاميم المبتكرة: نقدم تصاميم فريدة ومخصصة تتناسب مع احتياجات عملائنا، سواء كانوا يرغبون في واجهات تجارية مبهرة أو ديكورات خارجية جذابة.
+            التركيب المتقن: نعتمد على تقنيات حديثة في عملية التركيب، مما يضمن نتائج متميزة وخالية من العيوب، مع الحفاظ على الجمالية العامة.
+            خدمة العملاء: نضع احتياجات عملائنا في مقدمة أولوياتنا، ونحرص على تقديم خدمات سريعة وفعالة تلبي توقعاتهم.
+            خططنا المستقبلية: بالإضافة إلى خدماتنا الحالية في تركيب وتوريد اليوفط الكلادينج، نخطط للتوسع في تقديم خدمات تصميم وتنفيذ الديكورات الداخلية والخارجية، مع التركيز على الابتكار والجودة في كل جانب من جوانب العمل.
+            
+            اتصل بنا الآن للحصول على استشارة مجانية ومعرفة المزيد عن خدماتنا، ودعنا نساعدك في إضفاء لمسة من التميز على مشروعك القادم!
+            
+            </p>
+    </div>
+
+    <!-- قسم اتصل بنا -->
+    <div class="contact" id="contact">
+        <h2>اتصل بنا</h2>
+        <form class="contact-form">
+            <label for="name">الاسم:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">الرسالة:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">إرسال</button>
+        </form>
+    </div>
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <p>&copy; 2024 أركاز. جميع الحقوق محفوظة. <a href="privacy-policy.html">سياسة الخصوصية</a> | <a href="terms-and-conditions.html">الشروط والأحكام</a></p>
+    </footer>
+</body>
+</html>
